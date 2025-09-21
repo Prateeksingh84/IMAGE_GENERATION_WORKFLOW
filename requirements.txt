@@ -1,0 +1,8 @@
+requests
+python-dotenv
+Pillow
+kagglehub
+pandas        # <— For CSV reading
+google-generativeai
+google-cloud-storage
+pandas

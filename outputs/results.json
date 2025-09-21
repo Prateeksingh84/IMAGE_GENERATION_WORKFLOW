@@ -1,0 +1,22 @@
+[
+  {
+    "prompt": "Minimalist advertisement for a luxury watch",
+    "file": "outputs\\image_1.png"
+  },
+  {
+    "prompt": "Creative poster for futuristic electric car",
+    "file": "outputs\\image_2.png"
+  },
+  {
+    "prompt": "Modern branding design for a food delivery app",
+    "file": "outputs\\image_3.png"
+  },
+  {
+    "prompt": "Fashion brand promotional banner with neon lights",
+    "file": "outputs\\image_4.png"
+  },
+  {
+    "prompt": "Realistic product mockup for a coffee brand",
+    "file": "outputs\\image_5.png"
+  }
+]
