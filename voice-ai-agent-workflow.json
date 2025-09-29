@@ -1,0 +1,76 @@
+{
+  "name": "Voice AI Agent Screening",
+  "nodes": [
+    {
+      "parameters": {
+        "functionCode": "// Simulate audio generation\nreturn [{ json: { audio_path: 'data/sample.wav' } }];"
+      },
+      "name": "Generate Audio",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Simulate transcript and NLP analysis\nconst transcript = 'Hello, my name is Prateek Singh. I have 3 years of experience in Python and AI.';\nconst analysis = { keywords: ['Python', 'AI'], tone_score: 0.85 };\nreturn [{ json: { transcript, analysis } }];"
+      },
+      "name": "NLP Analysis",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [550, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Calculate screening score and decision\nconst { analysis } = items[0].json;\nconst skill_match = 0.8;\nconst years = 3;\nconst notice_days = 14;\nconst willingness_score = 0.9;\nconst tone = analysis.tone_score;\nconst exp_score = Math.min(years / 5.0, 1.0);\nconst availability = notice_days <= 14 ? 1.0 : notice_days <= 30 ? 0.7 : 0.4;\nconst score = Math.round((skill_match*0.4 + exp_score*0.2 + availability*0.15 + willingness_score*0.15 + tone*0.1)*100);\nlet decision = '';\nif(score >= 70){ decision='Advance to Technical Interview'; }\nelse if(score >=50){ decision='Escalate to HR Review'; }\nelse{ decision='Reject - Not suitable'; }\nreturn [{ json: { score, decision } }];"
+      },
+      "name": "Scoring & Decision",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "functionCode": "// Combine all info into HR-style report\nconst { transcript, analysis } = items[0].json;\nconst { score, decision } = items[1].json;\nconst report = {\n  Transcript: transcript,\n  Keywords: analysis.keywords,\n  Tone: analysis.tone_score,\n  ScreeningScore: score,\n  Decision: decision\n};\nreturn [{ json: report }];"
+      },
+      "name": "Generate Report",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [1150, 300]
+    }
+  ],
+  "connections": {
+    "Generate Audio": {
+      "main": [
+        [
+          {
+            "node": "NLP Analysis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NLP Analysis": {
+      "main": [
+        [
+          {
+            "node": "Scoring & Decision",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scoring & Decision": {
+      "main": [
+        [
+          {
+            "node": "Generate Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

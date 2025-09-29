@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Main",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.py",
+      "console": "integratedTerminal",
+      "justMyCode": true,
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    },
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "justMyCode": true
+    },
+    {
+      "name": "Python: Debug with Arguments",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/main.py",
+      "console": "integratedTerminal",
+      "args": [],
+      "justMyCode": false
+    }
+  ]
+}

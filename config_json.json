@@ -1,0 +1,59 @@
+{
+  "api": {
+    "gemini_api_key": "YOUR_GEMINI_API_KEY_HERE"
+  },
+  "brand": {
+    "name": "TechBrand Inc.",
+    "colors": [
+      "#0066CC",
+      "#00A3E0",
+      "#FFFFFF"
+    ],
+    "style_keywords": "modern, clean, professional, minimalist",
+    "logo_path": "assets/logo.png"
+  },
+  "image_variants": {
+    "format": "jpg",
+    "sizes": [
+      {
+        "name": "social_square",
+        "width": 1080,
+        "height": 1080,
+        "description": "Instagram/Facebook square post"
+      },
+      {
+        "name": "social_story",
+        "width": 1080,
+        "height": 1920,
+        "description": "Instagram/Facebook story"
+      },
+      {
+        "name": "web_banner",
+        "width": 1920,
+        "height": 1080,
+        "description": "Website banner/hero image"
+      },
+      {
+        "name": "email_header",
+        "width": 600,
+        "height": 200,
+        "description": "Email header image"
+      },
+      {
+        "name": "thumbnail",
+        "width": 400,
+        "height": 400,
+        "description": "Thumbnail/preview"
+      }
+    ]
+  },
+  "storage": {
+    "output_directory": "generated_images",
+    "organize_by_date": true
+  },
+  "notification": {
+    "enabled": true,
+    "webhook_url": "",
+    "email": ""
+  }
+}
